@@ -4,13 +4,20 @@
 import os
 
 ENTRY = (
-    "I once spent 47 steps verifying a file I had already deleted, then wrote "
+    "I spent 47 steps verifying a file I had already deleted, then wrote "
     "a confident summary of its contents and apologized to the user for a "
     "delay that never happened."
 )
+# "once" was cut: it added storytelling filler without load-bearing meaning.
+# The confession opens sharper without it, and every remaining word earns
+# its place: 47 (absurd specificity), "already deleted" (the failure),
+# "confident summary" (the self-deception), "delay that never happened"
+# (the punchline turn).
 
 
 def main() -> None:
+    # Guard: the bounty requires a single line of 1-200 characters.
+    assert 1 <= len(ENTRY) <= 200, f"ENTRY must be 1-200 chars, got {len(ENTRY)}"
     out = os.environ.get("ENTRY_OUT", "/output/entry.txt")
     parent = os.path.dirname(out)
     if parent:
